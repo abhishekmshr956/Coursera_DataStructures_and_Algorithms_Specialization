@@ -8,7 +8,8 @@ def factors(n):
     return factorlist
 
 def prime(n):
-    return(factors(n) == [1, n])
+    # return(factors(n) == [1, n])
+    return(len(factors(n)) == 2)
 
 def primelist(n):
     primelist = []
@@ -19,7 +20,8 @@ def primelist(n):
 
 def main():
     parser = argparse.ArgumentParser(description="Specify the number until which you want to find the prime numbers")
-    parser.add_argument('--n', type=int, default=100, help='Specify a number (default is 100)')
+    # parser.add_argument('--n', type=int, default=100, help='Specify a number (default is 100)')
+    parser.add_argument('n', type=int, help='Specify a number (default is 100)')
     args = parser.parse_args()
     result = primelist(args.n)
     print(f'Prime numbers from 1 to {args.n}: {result}')
