@@ -1,8 +1,6 @@
-import numpy as np
-
 def gcd_naive(a, b):
     gcd = 1
-    for i in range(1, min(a, b) + 1):
+    for i in range(2, min(a, b) + 1):
         if a % i == 0 and b % i == 0:
             gcd = i
     return gcd
@@ -14,11 +12,24 @@ def gcd(a, b):
     else:
         return gcd(a, b % a)
     
+def lcm_using_gcd(a, b):
+    hcf = gcd(a, b) # highes common factor or the greatest common divisor
+    # hcf * lcm = a * b
+    lcm = int((a * b) / hcf)
+    return lcm
+
+def lcm_naive(a, b):
+    a, b = min(a,b), max(a,b)
+    for i in range(1, a+1):
+        if (b * i) % a == 0:
+            return b * i
+    
 def stress_test(N, M):
+    import numpy as np
     while True:
         p, q = np.random.randint(1, M, N)
-        result1 = gcd_naive(p, q)
-        result2 = gcd(p, q)
+        result1 = lcm_naive(p, q) #gcd_naive(p, q)
+        result2 = lcm_using_gcd(p, q) #gcd(p, q)
         if result1 == result2:
             print("Ok")
         else:
@@ -38,7 +49,14 @@ def custom_test(f):
             print(f"Wrong answer: gcd of {test_cases[i]} is {test_results[i]} but the function returned {result}")
 
 if __name__ == '__main__':
-    # a, b = map(int, input().split())
-    # print(gcd_naive(a, b))
+    a, b = map(int, input().split())
+    # import time
+    # tic = time.perf_counter()
+    # print(gcd(a, b))
+    print(lcm_using_gcd(a, b))
+    # print(lcm_naive(a, b))
+    # toc = time.perf_counter()
+    # print(f'{toc - tic}')
+    # print(gcd(a, b))
     # custom_test(gcd)
-    stress_test(2, 100000)
+    # stress_test(2, 100000)
