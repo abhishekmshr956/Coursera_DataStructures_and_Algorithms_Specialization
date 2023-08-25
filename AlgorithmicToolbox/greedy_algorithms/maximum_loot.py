@@ -2,7 +2,7 @@ from sys import stdin
 
 def best_item(w, v):
     n = len(v)
-    best_index = None
+    best_index = 0
     max_val_per_unit = 0
     for i in range(n):
         if w[i] > 0: # if weight > 0
