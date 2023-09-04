@@ -9,5 +9,5 @@ def SelectionSort(A):
     return A
 
 if __name__ == '__main__':
-    input_A = [9,3,3,2,6,5]
+    input_A = [7, 2, 5, 3, 7, 13, 1, 6] #, [9,3,3,2,6,5]
     print(SelectionSort(input_A))
