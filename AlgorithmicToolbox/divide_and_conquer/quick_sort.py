@@ -1,3 +1,5 @@
+import random
+
 def Partition(A, l, r):
     x = A[l] # pivot
     j = l
@@ -15,9 +17,19 @@ def QuickSort(A, l, r):
     QuickSort(A, l, m - 1)
     QuickSort(A, m + 1, r)
 
+def RandomizedQuickSort(A, l, r):
+    if l >= r:
+        return
+    k = random.randint(l, r)
+    (A[l], A[k]) = (A[k], A[l])
+    m = Partition(A, l, r)
+    RandomizedQuickSort(A, l, m - 1)
+    RandomizedQuickSort(A, m + 1, r)
+
 if __name__ == '__main__':
-    # A = [7, 2, 5, 3, 7, 13, 1, 6]
-    A = [9,3,3,2,6,5]
+    A = [7, 2, 5, 3, 7, 13, 1, 6]
+    # A = [9,3,3,2,6,5]
     # print(Merge(B, C))
-    QuickSort(A, 0, len(A) - 1)
+    # QuickSort(A, 0, len(A) - 1)
+    RandomizedQuickSort(A, 0, len(A) - 1)
     print(A)
