@@ -1,0 +1,12 @@
+https://youtu.be/zWg7U0OEAoE?si=UINRxlwaZGM6fvfv
+
+3:53 Algorithmic Efficiency
+5:18 Measuring the running time
+8:32 Pseudo code
+13:10 Sorting example
+14:48 Insertion Sort
+19:35 Analysis of Insertion Sort
+30:27 Asymptotic Analysis
+32:20 big-Oh O() notation
+41:34 Example of Asymptotic Analysis
+47:00 Big Omega and Big Theta notation
