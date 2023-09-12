@@ -1,0 +1,3 @@
+The span s_i of a stock's price on a certain day i is the maximum number of consecutive days (up to the current day) the price of the stock has been less than or equal to its price on day i.
+Input: the stock prices P as an array of numbers
+Output: the span array S where S[i] is the span for the ith day
