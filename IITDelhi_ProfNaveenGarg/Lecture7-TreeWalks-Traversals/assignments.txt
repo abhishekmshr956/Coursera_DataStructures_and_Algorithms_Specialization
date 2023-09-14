@@ -1,0 +1,3 @@
+1) Given a preorder and inorder traversal of a binary tree, build the binary tree
+2) Given a postorder and inorder traversal of a bianry tree, build the binary tree
+3) Given a preorder and the postorder traversal, and the constraint that every internal node has 2 nodes, build the original tree
