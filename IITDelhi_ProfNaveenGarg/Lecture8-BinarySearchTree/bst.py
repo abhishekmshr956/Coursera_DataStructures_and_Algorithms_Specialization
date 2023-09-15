@@ -40,6 +40,12 @@ def BinarySearchTree_iter(node, k):
         elif k > node.element:
             node = node.right
     return node
+
+def BST_min(node):
+    while node.left:
+        node = node.left
+    print(node.element)
+    return node
     
 
 
@@ -54,9 +60,11 @@ root.right.right = TreeNode(11)
 
 # tree = BinaryTree(root)
 
-target = 3
+target = 2
 print(BinarySearchTree_recur(root, target))
 print(BinarySearchTree_iter(root, target))
+
+print(BST_min(root))
 
 
 
