@@ -63,6 +63,28 @@ def BST_successor(node):
         y = node.parent
     return y if y else None
 
+#TODO: BST insertion
+def BST_insertion(root, z):
+    y = None
+    x = root
+    while x: # and x.element != z.element:
+        y = x
+        if z.element < x.element:
+            x = x.left
+        elif z.element > x.element:
+            x = x.right
+    z.parent = y
+    if y is None:
+        root = z
+        # if root.element < z.element:
+        #     z.left = root
+        # elif root.element > z.element:
+        #     z.right = root
+    else:
+        if z.element < y.element:
+            y.left = z
+        elif z.element > y.element:
+            y.right = z
 
     
 
@@ -85,22 +107,32 @@ root.right.right.parent = root.right
 
 # tree = BinaryTree(root)
 
-target = 11
+target = 9
 print(BinarySearchTree_recur(root, target))
-print(BinarySearchTree_iter(root, target))
 
-print(BST_min(root))
-print(BST_max(root))
+new_node = TreeNode(target)
+BST_insertion(root, new_node)
 
-# given_node = BinarySearchTree_iter(root, target)
-given_node = root.right.right
-successor = BST_successor(given_node)
-# print(successor)
-# print(successor.element)
-if successor:
-    print(successor.element)
-else:
-    print("No successor")
+# target = 8
+print(BinarySearchTree_recur(root, target))
+print(BinarySearchTree_recur(root, target).parent.element)
+
+# target = 11
+# print(BinarySearchTree_recur(root, target))
+# print(BinarySearchTree_iter(root, target))
+
+# print(BST_min(root))
+# print(BST_max(root))
+
+# # given_node = BinarySearchTree_iter(root, target)
+# given_node = root.right.right
+# successor = BST_successor(given_node)
+# # print(successor)
+# # print(successor.element)
+# if successor:
+#     print(successor.element)
+# else:
+#     print("No successor")
 
 
 

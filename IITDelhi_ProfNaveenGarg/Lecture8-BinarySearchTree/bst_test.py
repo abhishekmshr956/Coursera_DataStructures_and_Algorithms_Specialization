@@ -25,6 +25,29 @@ def BST_min(node):
         node = node.left
     return node
 
+#TODO: BST insertion
+def BST_insertion(root, z):
+    y = None
+    x = root
+    while x: # and x.element != z.element:
+        y = x
+        if z.element < x.element:
+            x = x.left
+        elif z.element > x.element:
+            x = x.right
+    z.parent = y
+    if y is None:
+        root = z
+        # if root.element < z.element:
+        #     z.left = root
+        # elif root.element > z.element:
+        #     z.right = root
+    else:
+        if z.element < y.element:
+            y.left = z
+        elif z.element > y.element:
+            y.right = z
+
 # Example usage:
 root = TreeNode(5)
 root.left = TreeNode(3)
