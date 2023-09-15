@@ -2,6 +2,7 @@ class TreeNode:
 
     def __init__(self, element):
         self.element = element
+        self.parent = None
         self.left = None
         self.right = None
 
@@ -46,25 +47,67 @@ def BST_min(node):
         node = node.left
     print(node.element)
     return node
+
+def BST_max(node):
+    while node.right:
+        node = node.right
+    print(node.element)
+    return node
+
+def BST_successor(node):
+    if node.right:
+        return BST_min(node.right)
+    y = node.parent
+    while y and node == y.right:
+        node = y
+        y = node.parent
+    return y if y else None
+
+
     
 
 
 root = TreeNode(5)
 root.left = TreeNode(3)
+root.left.parent = root
 root.left.left = TreeNode(2)
+root.left.left.parent = root.left
 root.left.right = TreeNode(5)
+root.left.right.parent = root.left
 root.left.right.left = TreeNode(4)
+root.left.right.left.parent = root.left.right
 root.right = TreeNode(10)
+root.right.parent = root
 root.right.left = TreeNode(7)
+root.right.left.parent = root.right
 root.right.right = TreeNode(11)
+root.right.right.parent = root.right
 
 # tree = BinaryTree(root)
 
-target = 2
+target = 11
 print(BinarySearchTree_recur(root, target))
 print(BinarySearchTree_iter(root, target))
 
 print(BST_min(root))
+print(BST_max(root))
+
+# given_node = BinarySearchTree_iter(root, target)
+given_node = root.right.right
+successor = BST_successor(given_node)
+# print(successor)
+# print(successor.element)
+if successor:
+    print(successor.element)
+else:
+    print("No successor")
+
+
+
+
+
+
+
 
 
 
